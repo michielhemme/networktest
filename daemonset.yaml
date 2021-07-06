@@ -1,18 +1,56 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: networktest
+  name: networktest-1
   labels:
-    k8s-app: networktest
+    k8s-app: networktest-1
 spec:
   selector:
     matchLabels:
-      name: networktest
+      name: networktest-1
   template:
     metadata:
       labels:
-        name: networktest
+        name: networktest-1
     spec:
       containers:
-      - name: networktest
+      - name: networktest-1
+        image: punaise91/network-test:1.0
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: networktest-2
+  labels:
+    k8s-app: networktest-2
+spec:
+  selector:
+    matchLabels:
+      name: networktest-2
+  template:
+    metadata:
+      labels:
+        name: networktest-2
+    spec:
+      containers:
+      - name: networktest-2
+        image: punaise91/network-test:1.0
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: networktest-3
+  labels:
+    k8s-app: networktest-3
+spec:
+  selector:
+    matchLabels:
+      name: networktest-3
+  template:
+    metadata:
+      labels:
+        name: networktest-3
+    spec:
+      containers:
+      - name: networktest-3
         image: punaise91/network-test:1.0
