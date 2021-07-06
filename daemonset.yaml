@@ -1,0 +1,17 @@
+kind: DaemonSet
+metadata:
+  name: networktest
+  labels:
+    k8s-app: networktest
+spec:
+  selector:
+    matchLabels:
+      name: networktest
+  template:
+    metadata:
+      labels:
+        name: networktest
+    spec:
+      containers:
+      - name: networktest
+        image: punaise91/network-test:1.0
